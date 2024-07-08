@@ -67,10 +67,13 @@ if uploaded_file is not None:
     else:
         st.error("Arquivo incorreto!")
         st.stop()
-
     # GENERATION DATAFRAME RSS AND PSS 
     df_rss = amRss.totalRss(uploaded_file_contents)
     df_pss = amPss.totalPssRss(uploaded_file_contents)
+    df_reason_death = processInterruption.reasonDeath(uploaded_file_contents)
+    df_kill = processInterruption.amKill(uploaded_file_contents)
+    df_cpuinfo = cpuInfo.cpuInfo(uploaded_file_contents)
+    df_ampss = amPss.am_pss(uploaded_file_contents)
 
     df_reason_death = processInterruption.reasonDeath(uploaded_file_contents)
     df_kill = processInterruption.amKill(uploaded_file_contents)
